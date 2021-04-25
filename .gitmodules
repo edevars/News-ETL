@@ -1,0 +1,3 @@
+[submodule "NewsWebScraper"]
+	path = NewsWebScraper
+	url = https://github.com/edevars/NewsWebScraper
