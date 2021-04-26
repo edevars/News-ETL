@@ -20,7 +20,7 @@ class DataBase:
             logging.info('Creating new engine of DB')
             cls._engine = cls.__new__(cls)
             env = Environment()
-            cls._engine = create_engine(
-                f"postgresql:///?User={env.DB_USER}&;Password={env.DB_PASSWORD}&Database={env.DB_NAME}&Server={env.DB_SERVER}&Port={env.DB_PORT}")
+            connection_string = f"postgresql+psycopg2://{env.DB_USER}:{env.DB_PASSWORD}@{env.DB_SERVER}:{env.DB_PORT}/{env.DB_NAME}"
+            cls._engine = create_engine(connection_string)
             logging.info('Engine succesfully created')
         return cls._engine
